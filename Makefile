@@ -8,6 +8,11 @@ LDFLAGS = -lg3logger
 
 CC = g++ -pg
 
-all:
-	@echo $(CC) -o $(LDFLAGS) $(CCFLAGS)
+all: prereqs build
+
+prereqs:
+	@apt-get install -y g3log
+
+build:
+	@if [ "$(VERBOSE)" = "on" ]; then echo $(CC) ./src/main.cpp $(LDFLAGS) $(CCFLAGS); fi
 	$(CC) ./src/main.cpp $(LDFLAGS) $(CCFLAGS)
