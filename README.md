@@ -1,0 +1,1 @@
+# cpp_g3log_makefile
